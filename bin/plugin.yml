@@ -1,0 +1,12 @@
+name: SimpleProtect
+version: 0.1.6
+main: com.github.xaxys.simpleprotect.Main
+author: xa
+commands:
+  protect:
+    description: Admin command for this.
+    permission: simpleprotect.admin
+permissions:
+  simpleprotect.admin:
+     description: Admin permission for this.
+     default: op
