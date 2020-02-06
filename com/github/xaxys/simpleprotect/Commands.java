@@ -11,6 +11,8 @@ import org.bukkit.World;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
+
 import com.github.xaxys.simpleprotect.common.util.OptionParser;
 import com.github.xaxys.simpleprotect.manager.EntityManager;
 
@@ -29,6 +31,11 @@ public class Commands implements CommandExecutor {
 	}
 
 	public boolean onCommand(CommandSender sender, Command arg1, String arg2, String[] args) {
+		if ((sender instanceof Player) && !((Player)sender).hasPermission("simpleprotect.admin")) {
+			sender.sendMessage(ChatColor.RED + "你没有权限使用 SimpleProtect");
+			return true;
+		}
+		
 		if (args.length < 1) {
 			sender.sendMessage(getPluginInfo());
 		} else if (args[0].equals("entity")) {

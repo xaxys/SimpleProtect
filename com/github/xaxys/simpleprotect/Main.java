@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.bukkit.Bukkit;
 import org.bukkit.entity.EntityType;
+import org.bukkit.event.block.BlockExplodeEvent;
 import org.bukkit.event.entity.CreatureSpawnEvent;
 import org.bukkit.event.entity.EntityExplodeEvent;
 import org.bukkit.event.entity.EntityInteractEvent;
@@ -108,6 +109,7 @@ public class Main extends JavaPlugin {
 	private void unregisterNoExplosionBlockDamage() {
 		getLogger().info("§9§l正在卸载爆炸事件监听器...");
 		EntityExplodeEvent.getHandlerList().unregister(this);
+		BlockExplodeEvent.getHandlerList().unregister(this);
 	}
 
 	public void onDisable() {
